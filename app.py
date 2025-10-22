@@ -8,9 +8,9 @@ st.title("📉 Customer Churn Prediction App")
 st.write("Predict whether a telecom customer is likely to churn based on their details.")
 
 # Load model artifacts
-model = pickle.load(open(r"C:/Users/BHAVESH AGARWAL/Projects/customer-churn-prediction/model/churn_model.pkl", "rb"))
-scaler = pickle.load(open(r"C:/Users/BHAVESH AGARWAL/Projects/customer-churn-prediction/model/scaler.pkl", "rb"))
-feature_names = pickle.load(open(r"C:/Users/BHAVESH AGARWAL/Projects/customer-churn-prediction/model/feature_names.pkl", "rb"))
+model = pickle.load(open(r"model/churn_model.pkl", "rb"))
+scaler = pickle.load(open(r"model/scaler.pkl", "rb"))
+feature_names = pickle.load(open(r"model/feature_names.pkl", "rb"))
 
 # User inputs
 st.header("Enter Customer Details:")
