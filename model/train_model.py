@@ -6,7 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
 # Load dataset
-df = pd.read_csv("../data/Telco-Customer-Churn.csv")
+df = pd.read_csv(r"C:/Users/BHAVESH AGARWAL/Projects/customer-churn-prediction/data/Telco-Customer-Churn.csv")
 df.dropna(inplace=True)
 
 # Encode target
@@ -14,7 +14,11 @@ le = LabelEncoder()
 df["Churn"] = le.fit_transform(df["Churn"])
 
 # Convert categorical variables to dummy variables
+# After converting df to dummies
 df = pd.get_dummies(df, drop_first=True)
+feature_names = df.drop("Churn", axis=1).columns.tolist()
+pickle.dump(feature_names, open(r"C:/Users/BHAVESH AGARWAL/Projects/customer-churn-prediction/model/feature_names.pkl", "wb"))
+
 
 # Split data
 X = df.drop("Churn", axis=1)
@@ -35,5 +39,5 @@ y_pred = model.predict(X_test)
 print("Accuracy:", accuracy_score(y_test, y_pred))
 
 # Save model and scaler
-pickle.dump(model, open("churn_model.pkl", "wb"))
-pickle.dump(scaler, open("scaler.pkl", "wb"))
+pickle.dump(model, open(r"C:/Users/BHAVESH AGARWAL/Projects/customer-churn-prediction/model/churn_model.pkl", "wb"))
+pickle.dump(scaler, open(r"C:/Users/BHAVESH AGARWAL/Projects/customer-churn-prediction/model/scaler.pkl", "wb"))
