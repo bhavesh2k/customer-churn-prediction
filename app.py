@@ -15,7 +15,7 @@ feature_names = pickle.load(open(r"model/feature_names.pkl", "rb"))
 # User inputs
 st.header("Enter Customer Details:")
 tenure = st.number_input("Tenure (in months)", min_value=0)
-monthly_charges = st.number_input("Monthly Charges ($)", min_value=0.0)
+monthly_charges = st.number_input("Monthly Charges ($)", min_value=0)
 contract = st.selectbox("Contract Type", ["Month-to-month", "One year", "Two year"])
 
 # Create a blank DataFrame with all features = 0
