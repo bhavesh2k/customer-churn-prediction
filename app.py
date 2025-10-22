@@ -7,6 +7,24 @@ st.set_page_config(page_title="Customer Churn Predictor", page_icon="📉")
 st.title("📉 Customer Churn Prediction App")
 st.write("Predict whether a telecom customer is likely to churn based on their details.")
 
+# ℹ️ Info section
+with st.expander("ℹ️ How this model works"):
+    st.markdown("""
+    This model predicts the **likelihood of a customer leaving (churning)** 
+    based on their account and usage details.
+
+    Here's a quick breakdown:
+    - The model was trained on **telecom customer data** using **Logistic Regression**.
+    - Input features such as `Contract Type`, `Internet Service`, and `Monthly Charges`
+      are preprocessed using **One-Hot Encoding** and **Standard Scaling**.
+    - The model outputs a **probability** that a customer will churn.
+    - If the probability > 0.5 → The app predicts **"Customer will churn"**.
+      Otherwise → **"Customer will stay"**.
+
+    🧠 **ML Algorithm:** Logistic Regression  
+    🧰 **Libraries Used:** scikit-learn, pandas, streamlit  
+    """)
+
 # Load model artifacts
 model = pickle.load(open(r"model/churn_model.pkl", "rb"))
 scaler = pickle.load(open(r"model/scaler.pkl", "rb"))
